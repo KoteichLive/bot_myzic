@@ -1,157 +1,157 @@
-# 🤖 Bot Muzik - Advanced AIogram Telegram Bot
+# 🤖 Bot Muzik - Продвинутый Telegram бот на AIogram
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![aiogram](https://img.shields.io/badge/aiogram-3.x-green.svg)](https://github.com/aiogram/aiogram)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A comprehensive Telegram bot built with aiogram 3.x for music and content management, featuring admin approval system, categories, promo codes, cases, and advertising marketplace.
+Комплексный Telegram бот, созданный на aiogram 3.x для управления музыкой и контентом, с системой одобрения администраторами, категориями, промокодами, кейсами и рекламной площадкой.
 
-## 📋 Table of Contents
+## 📋 Содержание
 
-- [Features](#-features)
-- [Architecture](#-architecture)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Usage](#-usage)
-- [API Documentation](#-api-documentation)
-- [Database Schema](#-database-schema)
-- [Development](#-development)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [Функции](#-функции)
+- [Архитектура](#-архитектура)
+- [Установка](#-установка)
+- [Конфигурация](#-конфигурация)
+- [Использование](#-использование)
+- [API Документация](#-api-документация)
+- [Схема базы данных](#-схема-базы-данных)
+- [Разработка](#-разработка)
+- [Тестирование](#-тестирование)
+- [Развертывание](#-развертывание)
+- [Участие в разработке](#-участие-в-разработке)
+- [Лицензия](#-лицензия)
 
-## 🎵 Features
+## 🎵 Функции
 
-### 👤 User Features
-- **Content Submission**: Submit music files and text posts for admin approval
-- **Music Library**: Browse approved music organized by categories and tags
-- **Promo Codes**: Create and activate promotional codes with rewards
-- **Cases System**: Participate in free/paid cases for random rewards
-- **Advertising**: Place advertisements in channels with budget management
-- **Balance Management**: View balance, transaction history, transfers
-- **Statistics**: Personal usage statistics and earnings tracking
+### 👤 Функции для пользователей
+- **Отправка контента**: Отправка музыкальных файлов и текстовых постов на одобрение администраторам
+- **Музыкальная библиотека**: Просмотр одобренной музыки, организованной по категориям и тегам
+- **Промокоды**: Создание и активация промокодов с вознаграждениями
+- **Система кейсов**: Участие в бесплатных/платных кейсах для случайных вознаграждений
+- **Реклама**: Размещение рекламы в каналах с управлением бюджетом
+- **Управление балансом**: Просмотр баланса, история транзакций, переводы
+- **Статистика**: Личная статистика использования и заработка
 
-### 👨‍💼 Administrator Features
-- **Content Moderation**: Approve/reject music, posts, and advertisements
-- **Category Management**: Create and manage music categories and tags
-- **User Management**: View user statistics, manage balances, ban/unban users
-- **Promo Management**: Create system-wide promo codes
-- **Advertising Oversight**: Review and approve ad campaigns
-- **Analytics Dashboard**: System-wide statistics and insights
+### 👨‍💼 Функции для администраторов
+- **Модерация контента**: Одобрение/отклонение музыки, постов и рекламы
+- **Управление категориями**: Создание и управление категориями и тегами музыки
+- **Управление пользователями**: Просмотр статистики пользователей, управление балансами, бан/разбан
+- **Управление промокодами**: Создание системных промокодов
+- **Контроль рекламы**: Просмотр и одобрение рекламных кампаний
+- **Аналитика**: Системная статистика и аналитика
 
-### 📺 Channel Features
-- **Automated Publishing**: Scheduled posting of approved content
-- **Reward System**: Automatic rewards for adding bot to channels
-- **Advertising Integration**: Monetization through approved advertisements
+### 📺 Функции для каналов
+- **Автоматическая публикация**: Запланированная публикация одобренного контента
+- **Система вознаграждений**: Автоматические вознаграждения за добавление бота в каналы
+- **Рекламная интеграция**: Монетизация через одобренную рекламу
 
-## 🏗️ Architecture
+## 🏗️ Архитектура
 
 ```
 bot_muzik/
-├── 📁 main.py                 # Application entry point
-├── 📁 config.py               # Configuration settings
-├── 📁 requirements.txt        # Python dependencies
+├── 📁 main.py                 # Точка входа в приложение
+├── 📁 config.py               # Настройки конфигурации
+├── 📁 requirements.txt        # Зависимости Python
 ├── 📁 database/
-│   ├── 📄 models.py           # SQLAlchemy ORM models
-│   └── 📄 connection.py       # Database connection management
+│   ├── 📄 models.py           # Модели SQLAlchemy ORM
+│   └── 📄 connection.py       # Управление подключением к БД
 ├── 📁 handlers/
-│   └── 📄 user.py             # User command handlers
+│   └── 📄 user.py             # Обработчики команд пользователей
 ├── 📁 keyboards/
-│   ├── 📄 user_kb.py          # User interface keyboards
-│   ├── 📄 admin_kb.py         # Admin interface keyboards
-│   └── 📄 inline_kb.py        # Inline keyboards
+│   ├── 📄 user_kb.py          # Клавиатуры интерфейса пользователей
+│   ├── 📄 admin_kb.py         # Клавиатуры интерфейса администраторов
+│   └── 📄 inline_kb.py        # Инлайновые клавиатуры
 ├── 📁 routers/
-│   └── 📄 user_router.py      # User command routing
+│   └── 📄 user_router.py      # Маршрутизация команд пользователей
 ├── 📁 middlewares/
-│   ├── 📄 auth.py             # Authentication & user management
-│   └── 📄 logging.py          # Request logging
+│   ├── 📄 auth.py             # Аутентификация и управление пользователями
+│   └── 📄 logging.py          # Логирование запросов
 ├── 📁 utils/
-│   ├── 📄 helpers.py          # Utility functions
-│   ├── 📄 scheduler.py        # Background task scheduler
-│   └── 📄 validators.py       # Input validation
+│   ├── 📄 helpers.py          # Вспомогательные функции
+│   ├── 📄 scheduler.py        # Планировщик фоновых задач
+│   └── 📄 validators.py       # Валидация ввода
 ├── 📁 api/
-│   ├── 📄 app.py              # FastAPI application
-│   ├── 📄 routes.py           # API endpoints
-│   └── 📄 auth.py             # API authentication
+│   ├── 📄 app.py              # Приложение FastAPI
+│   ├── 📄 routes.py           # API эндпоинты
+│   └── 📄 auth.py             # Аутентификация API
 ├── 📁 states/
-│   ├── 📄 user_states.py      # FSM states for users
-│   └── 📄 admin_states.py     # FSM states for admins
-└── 📄 README.md               # Documentation
+│   ├── 📄 user_states.py      # FSM состояния для пользователей
+│   └── 📄 admin_states.py     # FSM состояния для администраторов
+└── 📄 README.md               # Документация
 ```
 
-### 🛠️ Technical Stack
+### 🛠️ Технический стек
 
-- **Framework**: aiogram 3.x (Telegram Bot API)
-- **Web Framework**: FastAPI (REST API)
-- **Database**: SQLAlchemy with async support (SQLite/PostgreSQL)
-- **State Management**: aiogram FSM with Redis/Memory storage
-- **Task Scheduling**: APScheduler
-- **Validation**: Pydantic
-- **Logging**: Loguru
+- **Фреймворк**: aiogram 3.x (Telegram Bot API)
+- **Веб-фреймворк**: FastAPI (REST API)
+- **База данных**: SQLAlchemy с асинхронной поддержкой (SQLite/PostgreSQL)
+- **Управление состоянием**: aiogram FSM с Redis/памятью
+- **Планировщик задач**: APScheduler
+- **Валидация**: Pydantic
+- **Логирование**: Loguru
 
-## 🚀 Installation
+## 🚀 Установка
 
-### Prerequisites
-- Python 3.8 or higher
+### Предварительные требования
+- Python 3.8 или выше
 - Git
-- Virtual environment (recommended)
+- Виртуальное окружение (рекомендуется)
 
-### Quick Start
+### Быстрый старт
 
-1. **Clone the repository**
+1. **Клонируйте репозиторий**
    ```bash
    git clone https://github.com/your-username/bot-muzik.git
    cd bot-muzik
    ```
 
-2. **Create virtual environment**
+2. **Создайте виртуальное окружение**
    ```bash
    python -m venv venv
    source venv/bin/activate  # Linux/Mac
-   # or
+   # или
    venv\Scripts\activate     # Windows
    ```
 
-3. **Install dependencies**
+3. **Установите зависимости**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configure the bot** (see Configuration section below)
+4. **Настройте бота** (см. раздел Конфигурация ниже)
 
-5. **Run the bot**
+5. **Запустите бота**
    ```bash
    python main.py
    ```
 
-## ⚙️ Configuration
+## ⚙️ Конфигурация
 
-Create a `config.py` file in the root directory:
+Создайте файл `config.py` в корневой директории:
 
 ```python
-# Telegram Bot Configuration
-BOT_TOKEN = "1234567890:ABCdefGHIjklMNOpqrsTUVwxyz123456789"  # Get from @BotFather
-ADMIN_IDS = [123456789, 987654321]  # Telegram user IDs of administrators
+# Конфигурация Telegram бота
+BOT_TOKEN = "1234567890:ABCdefGHIjklMNOpqrsTUVwxyz123456789"  # Получить от @BotFather
+ADMIN_IDS = [123456789, 987654321]  # Telegram ID администраторов
 
-# Database Configuration
-DATABASE_URL = "sqlite+aiosqlite:///bot.db"  # SQLite (recommended for development)
+# Конфигурация базы данных
+DATABASE_URL = "sqlite+aiosqlite:///bot.db"  # SQLite (рекомендуется для разработки)
 # DATABASE_URL = "postgresql+asyncpg://user:password@localhost:5432/bot_db"  # PostgreSQL
 
-# State Storage (choose one)
-REDIS_URL = "redis://localhost:6379"  # Redis for production
-# Use MemoryStorage for development (automatically configured)
+# Хранение состояний (выберите один)
+REDIS_URL = "redis://localhost:6379"  # Redis для продакшена
+# Использовать MemoryStorage для разработки (автоматически настраивается)
 
-# API Server Configuration
+# Конфигурация API сервера
 API_HOST = "0.0.0.0"
 API_PORT = 8000
 API_SECRET_KEY = "your-super-secret-key-change-this-in-production"
 
-# Logging Configuration
+# Конфигурация логирования
 LOG_LEVEL = "INFO"
 LOG_FILE = "bot.log"
 
-# Business Logic Settings
+# Настройки бизнес-логики
 DEFAULT_BALANCE = 0.0
 FREE_CASE_REWARD = 10.0
 POST_SUBMIT_REWARD = 5.0
@@ -160,54 +160,54 @@ VOICE_REWARD = 2.0
 ADMIN_FEE_PERCENT = 10.0
 CHANNEL_ADD_REWARD = 50.0
 
-# Promo Code Settings
+# Настройки промокодов
 PROMO_CODE_LENGTH = 8
 PROMO_ACTIVATION_REWARD = 0.0
 
-# Case Settings
+# Настройки кейсов
 CASE_PARTICIPATION_LIMIT = 1
 
-# Advertisement Settings
+# Настройки рекламы
 MIN_AD_BUDGET = 10.0
 MAX_AD_BUDGET = 1000.0
 
-# File Upload Limits
+# Ограничения загрузки файлов
 MAX_MUSIC_FILE_SIZE = 50 * 1024 * 1024  # 50 MB
 ALLOWED_MUSIC_FORMATS = ['mp3', 'wav', 'flac', 'aac', 'ogg']
 MAX_PHOTO_SIZE = 10 * 1024 * 1024  # 10 MB
 
-# Scheduler Settings
+# Настройки планировщика
 SCHEDULER_TIMEZONE = "Europe/Moscow"
 
-# Webhook Settings (optional, for production)
-WEBHOOK_URL = ""  # Leave empty for polling mode
+# Настройки вебхуков (опционально, для продакшена)
+WEBHOOK_URL = ""  # Оставить пустым для режима polling
 WEBHOOK_PATH = "/webhook"
 WEBHOOK_SECRET = "webhook-secret-change-this"
 
-# Payment Integration (if needed)
+# Интеграция платежей (при необходимости)
 PAYMENT_TOKEN = ""
 
-# External API Settings
+# Настройки внешних API
 EXTERNAL_API_TIMEOUT = 30
 
-# Database Connection Pool
+# Пул подключений к базе данных
 DB_POOL_SIZE = 10
 DB_MAX_OVERFLOW = 20
 
-# Redis Pool (if using Redis)
+# Пул Redis (при использовании Redis)
 REDIS_POOL_SIZE = 10
 
-# Rate Limiting
-RATE_LIMIT_REQUESTS = 30  # requests per window
-RATE_LIMIT_WINDOW = 60    # seconds
+# Ограничение частоты запросов
+RATE_LIMIT_REQUESTS = 30  # запросов в окне
+RATE_LIMIT_WINDOW = 60    # секунд
 
-# Caching
-CACHE_TTL = 300  # 5 minutes
+# Кеширование
+CACHE_TTL = 300  # 5 минут
 ```
 
-### Environment Variables (Alternative)
+### Переменные окружения (Альтернатива)
 
-You can also use environment variables for sensitive configuration:
+Вы также можете использовать переменные окружения для чувствительной конфигурации:
 
 ```bash
 export BOT_TOKEN="your_bot_token"
@@ -216,89 +216,89 @@ export API_SECRET_KEY="your-secret-key"
 python main.py
 ```
 
-## 📖 Usage
+## 📖 Использование
 
-### For Users
+### Для пользователей
 
-1. **Start the bot**: Send `/start` command to @your_bot_username
-2. **Navigate menus**: Use inline keyboards to access different sections
-3. **Submit content**: Upload music or write posts for admin approval
-4. **Earn rewards**: Participate in activities and invite friends
-5. **Manage balance**: View transactions and transfer funds
+1. **Запустите бота**: Отправьте команду `/start` боту @your_bot_username
+2. **Навигация по меню**: Используйте инлайновые клавиатуры для доступа к различным разделам
+3. **Отправка контента**: Загружайте музыку или пишите посты для одобрения администраторами
+4. **Зарабатывайте награды**: Участвуйте в активностях и приглашайте друзей
+5. **Управление балансом**: Просматривайте транзакции и переводите средства
 
-### For Administrators
+### Для администраторов
 
-1. **Access admin panel**: Bot automatically detects admin users
-2. **Moderate content**: Review submissions in approval queues
-3. **Manage categories**: Create music categories and tags
-4. **User management**: View statistics and manage user accounts
-5. **System monitoring**: Check bot performance and usage statistics
+1. **Доступ к панели администратора**: Бот автоматически определяет пользователей-администраторов
+2. **Модерация контента**: Просматривайте материалы в очередях на одобрение
+3. **Управление категориями**: Создавайте категории и теги музыки
+4. **Управление пользователями**: Просматривайте статистику и управляйте учетными записями
+5. **Мониторинг системы**: Проверяйте производительность и использование бота
 
-### Available Commands
+### Доступные команды
 
-| Command | Description |
-|---------|-------------|
-| `/start` | Initialize bot and show welcome message |
-| `/help` | Show help information |
-| `/menu` | Display main menu |
+| Команда | Описание |
+|---------|----------|
+| `/start` | Инициализация бота и показ приветственного сообщения |
+| `/help` | Показ справки |
+| `/menu` | Отображение главного меню |
 
-### Keyboard Navigation
+### Навигация по клавиатуре
 
-The bot uses inline keyboards for intuitive navigation:
-- **🎵 Music**: Browse and listen to approved music
-- **📝 Submit Post**: Propose content for publication
-- **🎫 Promo Codes**: Create and manage promotional codes
-- **🎰 Cases**: Participate in reward cases
-- **📢 Advertising**: Place advertisements
-- **💰 Balance**: Manage account balance
-- **📊 Statistics**: View personal statistics
-- **ℹ️ Help**: Access help and rules
+Бот использует инлайновые клавиатуры для интуитивной навигации:
+- **🎵 Музыка**: Просмотр и прослушивание одобренной музыки
+- **📝 Предложить пост**: Предложить контент для публикации
+- **🎫 Промокоды**: Создание и управление промокодами
+- **🎰 Кейсы**: Участие в кейсах с наградами
+- **📢 Реклама**: Размещение рекламы
+- **💰 Баланс**: Управление балансом счета
+- **📊 Статистика**: Просмотр личной статистики
+- **ℹ️ Помощь**: Доступ к справке и правилам
 
-## 🌐 API Documentation
+## 🌐 API Документация
 
-The bot includes a REST API for external integrations.
+Бот включает REST API для внешних интеграций.
 
-### Authentication
+### Аутентификация
 
-API uses Bearer token authentication:
+API использует аутентификацию с Bearer токеном:
 ```
 Authorization: Bearer <your-api-token>
 ```
 
-### Endpoints
+### Эндпоинты
 
-#### 🎫 Promo Codes
+#### 🎫 Промокоды
 ```http
 GET /promo/{code}
 POST /promo/{code}/activate
 ```
 
-#### 👤 Users
+#### 👤 Пользователи
 ```http
 GET /users/{user_id}/balance
 POST /users/{user_id}/reward
 ```
 
-#### 📺 Channels
+#### 📺 Каналы
 ```http
 GET /channels
 POST /channels/{channel_id}/post
 ```
 
-#### 📊 Health Check
+#### 📊 Проверка здоровья
 ```http
 GET /health
 ```
 
-### API Usage Examples
+### Примеры использования API
 
-**Get Promo Code Info:**
+**Получить информацию о промокоде:**
 ```bash
 curl -H "Authorization: Bearer your-token" \
      http://localhost:8000/promo/ABC123
 ```
 
-**Activate Promo Code:**
+**Активировать промокод:**
 ```bash
 curl -X POST \
      -H "Authorization: Bearer your-token" \
@@ -443,100 +443,100 @@ CREATE TABLE channels (
 );
 ```
 
-## 💻 Development
+## 💻 Разработка
 
-### Development Setup
+### Настройка среды разработки
 
-1. **Install development dependencies**
+1. **Установите зависимости для разработки**
    ```bash
-   pip install -r requirements-dev.txt  # if available
+   pip install -r requirements-dev.txt  # если доступно
    ```
 
-2. **Enable debug logging**
+2. **Включите отладочное логирование**
    ```python
    LOG_LEVEL = "DEBUG"
    ```
 
-3. **Run with auto-reload**
+3. **Запустите с автоматической перезагрузкой**
    ```bash
    python -m uvicorn api.app:app --reload --host 0.0.0.0 --port 8000
    ```
 
-### Code Structure Guidelines
+### Руководство по структуре кода
 
-- **Handlers**: Keep business logic separate from message handling
-- **Models**: Use SQLAlchemy best practices with proper relationships
-- **Middleware**: Implement cross-cutting concerns (auth, logging, rate limiting)
-- **Keyboards**: Centralize UI components for consistency
-- **Utils**: Pure functions for reusable logic
+- **Обработчики**: Отделяйте бизнес-логику от обработки сообщений
+- **Модели**: Используйте лучшие практики SQLAlchemy с правильными связями
+- **Middleware**: Реализуйте сквозные задачи (аутентификация, логирование, ограничение частоты)
+- **Клавиатуры**: Централизуйте UI компоненты для согласованности
+- **Утилиты**: Чистые функции для повторно используемой логики
 
-### Adding New Features
+### Добавление новых функций
 
-1. **Plan the feature**: Define requirements and user stories
-2. **Database changes**: Create migrations for schema updates
-3. **Implement handlers**: Add command/message handlers
-4. **Update keyboards**: Create or modify UI components
-5. **Add middleware**: Implement necessary cross-cutting concerns
-6. **Write tests**: Ensure functionality works correctly
-7. **Update documentation**: Reflect changes in README and API docs
+1. **Планируйте функцию**: Определите требования и пользовательские истории
+2. **Изменения базы данных**: Создайте миграции для обновления схемы
+3. **Реализуйте обработчики**: Добавьте обработчики команд/сообщений
+4. **Обновите клавиатуры**: Создайте или модифицируйте UI компоненты
+5. **Добавьте middleware**: Реализуйте необходимые сквозные задачи
+6. **Напишите тесты**: Убедитесь, что функциональность работает правильно
+7. **Обновите документацию**: Отразите изменения в README и API документации
 
-## 🧪 Testing
+## 🧪 Тестирование
 
-### Running Tests
+### Запуск тестов
 
 ```bash
-# Run all tests
+# Запустить все тесты
 pytest
 
-# Run with coverage
+# Запустить с покрытием
 pytest --cov=bot_muzik --cov-report=html
 
-# Run specific test file
+# Запустить конкретный файл тестов
 pytest tests/test_handlers.py
 
-# Run tests in verbose mode
+# Запустить в verbose режиме
 pytest -v
 ```
 
-### Test Structure
+### Структура тестов
 
 ```
 tests/
-├── conftest.py           # Test configuration and fixtures
-├── test_handlers/        # Handler tests
-├── test_models/          # Model tests
-├── test_api/             # API endpoint tests
-├── test_middlewares/     # Middleware tests
-└── test_utils/           # Utility function tests
+├── conftest.py           # Конфигурация тестов и фикстуры
+├── test_handlers/        # Тесты обработчиков
+├── test_models/          # Тесты моделей
+├── test_api/             # Тесты API эндпоинтов
+├── test_middlewares/     # Тесты middleware
+└── test_utils/           # Тесты утилит
 ```
 
-### Writing Tests
+### Написание тестов
 
 ```python
 import pytest
 from aiogram.types import Message
 
 def test_start_command(user_message):
-    # Test /start command handler
+    # Тестирование обработчика команды /start
     response = await handle_start_command(user_message)
     assert "welcome" in response.text.lower()
 ```
 
-## 🚀 Deployment
+## 🚀 Развертывание
 
-### Production Checklist
+### Контрольный список для продакшена
 
-- [ ] Set `LOG_LEVEL = "WARNING"` or `"ERROR"`
-- [ ] Use PostgreSQL instead of SQLite
-- [ ] Configure Redis for state storage
-- [ ] Set strong `API_SECRET_KEY`
-- [ ] Enable webhooks instead of polling
-- [ ] Configure SSL/TLS certificates
-- [ ] Set up monitoring and alerts
-- [ ] Configure backup procedures
-- [ ] Set up log rotation
+- [ ] Установите `LOG_LEVEL = "WARNING"` или `"ERROR"`
+- [ ] Используйте PostgreSQL вместо SQLite
+- [ ] Настройте Redis для хранения состояний
+- [ ] Установите надежный `API_SECRET_KEY`
+- [ ] Включите вебхуки вместо polling
+- [ ] Настройте SSL/TLS сертификаты
+- [ ] Настройте мониторинг и оповещения
+- [ ] Настройте процедуры резервного копирования
+- [ ] Настройте ротацию логов
 
-### Docker Deployment
+### Развертывание в Docker
 
 ```dockerfile
 FROM python:3.11-slim
@@ -552,14 +552,14 @@ CMD ["python", "main.py"]
 ```
 
 ```bash
-# Build and run
+# Собрать и запустить
 docker build -t bot-muzik .
 docker run -d -p 8000:8000 --env-file .env bot-muzik
 ```
 
-### Systemd Service
+### Служба Systemd
 
-Create `/etc/systemd/system/bot-muzik.service`:
+Создайте `/etc/systemd/system/bot-muzik.service`:
 
 ```ini
 [Unit]
@@ -584,9 +584,9 @@ sudo systemctl start bot-muzik
 sudo systemctl status bot-muzik
 ```
 
-### Webhook Configuration
+### Конфигурация вебхуков
 
-For production, configure webhooks instead of polling:
+Для продакшена настройте вебхуки вместо polling:
 
 ```python
 WEBHOOK_URL = "https://your-domain.com"
@@ -594,49 +594,49 @@ WEBHOOK_PATH = "/webhook"
 WEBHOOK_SECRET = "your-webhook-secret"
 ```
 
-## 🤝 Contributing
+## 🤝 Участие в разработке
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes** and add tests
-4. **Run tests**: `pytest`
-5. **Commit changes**: `git commit -m 'Add amazing feature'`
-6. **Push to branch**: `git push origin feature/amazing-feature`
-7. **Open a Pull Request**
+1. **Форкните репозиторий**
+2. **Создайте ветку функции**: `git checkout -b feature/amazing-feature`
+3. **Внесите изменения** и добавьте тесты
+4. **Запустите тесты**: `pytest`
+5. **Зафиксируйте изменения**: `git commit -m 'Add amazing feature'`
+6. **Отправьте в ветку**: `git push origin feature/amazing-feature`
+7. **Создайте Pull Request**
 
-### Contribution Guidelines
+### Правила участия
 
-- Follow PEP 8 style guidelines
-- Write comprehensive tests for new features
-- Update documentation for API changes
-- Use type hints for function parameters
-- Keep commit messages descriptive and concise
-- Ensure all tests pass before submitting PR
+- Следуйте стилю PEP 8
+- Пишите комплексные тесты для новых функций
+- Обновляйте документацию для изменений API
+- Используйте подсказки типов для параметров функций
+- Делайте сообщения коммитов описательными и краткими
+- Убедитесь, что все тесты проходят перед отправкой PR
 
-### Code Review Process
+### Процесс проверки кода
 
-- All PRs require review from at least one maintainer
-- CI/CD pipeline must pass all checks
-- Code coverage should not decrease
-- Documentation must be updated for user-facing changes
+- Все PR требуют проверки хотя бы одним сопровождающим
+- CI/CD пайплайн должен проходить все проверки
+- Покрытие кода не должно уменьшаться
+- Документация должна обновляться для пользовательских изменений
 
-## 📄 License
+## 📄 Лицензия
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Этот проект лицензирован по лицензии MIT - см. файл [LICENSE](LICENSE) для подробностей.
 
-## 📞 Support
+## 📞 Поддержка
 
-- **Issues**: [GitHub Issues](https://github.com/your-username/bot-muzik/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/bot-muzik/discussions)
-- **Documentation**: [Wiki](https://github.com/your-username/bot-muzik/wiki)
+- **Проблемы**: [GitHub Issues](https://github.com/your-username/bot-muzik/issues)
+- **Обсуждения**: [GitHub Discussions](https://github.com/your-username/bot-muzik/discussions)
+- **Документация**: [Wiki](https://github.com/your-username/bot-muzik/wiki)
 
-## 🙏 Acknowledgments
+## 🙏 Благодарности
 
-- [aiogram](https://github.com/aiogram/aiogram) - Modern Telegram Bot Framework
-- [FastAPI](https://fastapi.tiangolo.com/) - Modern Python web framework
-- [SQLAlchemy](https://www.sqlalchemy.org/) - Python SQL toolkit
-- [Loguru](https://github.com/Delgan/loguru) - Python logging made simple
+- [aiogram](https://github.com/aiogram/aiogram) - Современный фреймворк для Telegram ботов
+- [FastAPI](https://fastapi.tiangolo.com/) - Современный веб-фреймворк Python
+- [SQLAlchemy](https://www.sqlalchemy.org/) - Набор инструментов Python SQL
+- [Loguru](https://github.com/Delgan/loguru) - Логирование Python стало простым
 
 ---
 
-**Made with ❤️ for the Telegram community**
+**Создано с ❤️ для сообщества Telegram**
